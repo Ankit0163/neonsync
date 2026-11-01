@@ -1,0 +1,27 @@
+# ── Server ──────────────────────────────────────────────
+server.port=8080
+
+# ── MySQL Database ───────────────────────────────────────
+# Change these to match your MySQL setup
+spring.datasource.url=CHANGE_ME
+spring.datasource.username=CHANGE_ME
+spring.datasource.password=CHANGE_ME
+
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+# JPA / Hibernate
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
+spring.jpa.properties.hibernate.format_sql=true
+
+# ── JWT ──────────────────────────────────────────────────
+# Change this to any long random string (keep it secret!)
+jwt.secret=CHANGE_ME
+jwt.expiration=CHANGE_ME
+
+# ── CORS (allow React dev server) ────────────────────────
+cors.allowed-origins=http://localhost:5173,http://localhost:3000
+
+# ── Logging ──────────────────────────────────────────────
+logging.level.com.neonsync=DEBUG

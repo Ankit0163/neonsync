@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 13% 9%;
+    --foreground: 220 9% 89%;
+
+    --card: 220 13% 11%;
+    --card-foreground: 220 9% 89%;
+
+    --popover: 220 13% 11%;
+    --popover-foreground: 220 9% 89%;
+
+    --primary: 207 90% 54%;
+    --primary-foreground: 220 13% 9%;
+
+    --secondary: 220 13% 15%;
+    --secondary-foreground: 220 9% 89%;
+
+    --muted: 220 13% 14%;
+    --muted-foreground: 220 9% 45%;
+
+    --accent: 207 90% 54%;
+    --accent-foreground: 220 13% 9%;
+
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 220 9% 89%;
+
+    --border: 220 13% 16%;
+    --input: 220 13% 14%;
+    --ring: 207 90% 54%;
+
+    --radius: 0.375rem;
+
+    --neon-cyan: 207 90% 54%;
+    --neon-purple: 265 85% 65%;
+    --neon-blue: 225 90% 60%;
+    --neon-green: 142 71% 45%;
+    --neon-orange: 30 95% 60%;
+    --neon-pink: 330 90% 65%;
+
+    --glass-bg: 220 13% 11%;
+    --glass-border: 220 13% 18%;
+
+    --sidebar-background: 220 13% 8%;
+    --sidebar-foreground: 220 9% 75%;
+    --sidebar-primary: 207 90% 54%;
+    --sidebar-primary-foreground: 220 13% 9%;
+    --sidebar-accent: 220 13% 13%;
+    --sidebar-accent-foreground: 220 9% 89%;
+    --sidebar-border: 220 13% 14%;
+    --sidebar-ring: 207 90% 54%;
+
+    --titlebar: 220 13% 7%;
+    --activitybar: 220 13% 8%;
+    --statusbar: 207 90% 30%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 13px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* VS Code style selection */
+  ::selection {
+    background: hsl(207 90% 54% / 0.3);
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-card/60 backdrop-blur-xl border border-glass-border;
+  }
+
+  .glass-strong {
+    background: hsl(var(--titlebar));
+    border-bottom: 1px solid hsl(var(--border));
+  }
+
+  .neon-glow-cyan {
+    box-shadow: 0 0 10px hsl(var(--neon-cyan) / 0.2);
+  }
+
+  .neon-glow-purple {
+    box-shadow: 0 0 10px hsl(var(--neon-purple) / 0.2);
+  }
+
+  .neon-text-cyan {
+    color: hsl(var(--neon-cyan));
+  }
+
+  .neon-text-purple {
+    color: hsl(var(--neon-purple));
+  }
+
+  .code-font {
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    font-size: 12px;
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--border)) transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 2px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground));
+  }
+
+  /* VS Code tab style */
+  .vscode-tab {
+    border-right: 1px solid hsl(var(--border));
+    min-width: 80px;
+    max-width: 160px;
+  }
+
+  .vscode-tab.active {
+    background: hsl(var(--background));
+    border-top: 1px solid hsl(var(--primary));
+    border-bottom: none;
+  }
+
+  /* Activity bar icon hover */
+  .activity-icon {
+    @apply flex items-center justify-center w-12 h-12 text-muted-foreground hover:text-foreground transition-colors cursor-pointer relative;
+  }
+
+  .activity-icon.active {
+    @apply text-foreground;
+    border-left: 2px solid hsl(var(--primary));
+  }
+}

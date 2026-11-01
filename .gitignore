@@ -1,0 +1,19 @@
+# dependencies and builds
+node_modules/
+dist/
+target/
+
+# secrets and local config
+.env
+.env.*
+!.env.example
+backend/neonsync/src/main/resources/application.properties
+
+# tool and editor noise
+.vscode/
+.idea/
+**/.github/java-upgrade/
+**/.github/modernize/
+*.log
+
+*.zip
